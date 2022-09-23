@@ -8,7 +8,7 @@ public class day4 {
         //selenium
         System.out.println("webLoginHomeLoan");
     }
-    @Test
+    @Test(groups = {"Smoke"})
     public void mobileLoginHomeLoan(){
         //Appium
         System.out.println("mobileLoginHomeLoan");
