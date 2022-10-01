@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Loan Department">
-    <test verbose="2" preserve-order="true" name="Personal Loan">
+<suite name="Loan Department" parallel="tests" thread-count="2">
+    <listeners>
+        <listener class-name="TestNG.Listeners"/>
+    </listeners>
+    <parameter name="URL" value="google.com"></parameter>
+    <parameter name="APIKey/Username" value="12345"></parameter>
+    <test verbose="2" preserve-order="true" name="Personal Loan" parallel="classes" thread-count="2">
+        <parameter name="URL" value="personal.google.com"></parameter>
+
         <classes>
             <class name="TestNG.day1"><methods><include name="Demo"/><include name="Demo2"/></methods></class>
             <class name="TestNG.day2"></class>
@@ -9,8 +16,10 @@
         </classes>
     </test>
     <test name="Car Loan">
+        <parameter name="URL" value="car.google.com"></parameter>
         <classes>
-            <class name="TestNG.day3"><methods><exclude name="mobile.*"/></methods></class>
+            <class name="TestNG.day3"></class>
+<!--            <class name="TestNG.day3"><methods><exclude name="mobile.*"/></methods></class>-->
         </classes>
     </test>
 </suite>
